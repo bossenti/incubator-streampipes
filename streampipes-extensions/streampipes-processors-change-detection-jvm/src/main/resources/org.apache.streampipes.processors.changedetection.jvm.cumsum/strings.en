@@ -1,5 +1,5 @@
-org.apache.streampipes.processors.changedetection.jvm.cusum.title=Cusum
-org.apache.streampipes.processors.changedetection.jvm.cusum.description=
+org.apache.streampipes.processors.changedetection.jvm.cumsum.title=Cumsum
+org.apache.streampipes.processors.changedetection.jvm.cumsum.description=Change detection via cumulative sum interpretation (Welford's Algorithm)
 
 number-mapping.title=Value to observe
 number-mapping.description=Specifies the monitored dimension.

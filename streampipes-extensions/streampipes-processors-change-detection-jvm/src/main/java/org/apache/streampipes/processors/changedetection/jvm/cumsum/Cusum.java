@@ -16,7 +16,7 @@
  *
  */
 
-package org.apache.streampipes.processors.changedetection.jvm.cusum;
+package org.apache.streampipes.processors.changedetection.jvm.cumsum;
 
 import org.apache.streampipes.commons.exceptions.SpRuntimeException;
 import org.apache.streampipes.model.runtime.Event;
@@ -92,12 +92,6 @@ public class Cusum implements EventProcessor<CusumParameters> {
         event.addField(CusumEventFields.DECISION_LOW, decisionLow);
         event.addField(CusumEventFields.DECISION_HIGH, decisionHigh);
         return event;
-    }
-
-    private Double getZScoreNormalizedValue(Double value) {
-        Double mean = welfordAggregate.getMean();
-        Double std = welfordAggregate.getSampleStd();
-        return (value - mean) / std;
     }
 
 }

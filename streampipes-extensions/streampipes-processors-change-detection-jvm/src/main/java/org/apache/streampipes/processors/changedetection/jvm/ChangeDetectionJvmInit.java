@@ -29,7 +29,7 @@ import org.apache.streampipes.dataformat.smile.SmileDataFormatFactory;
 import org.apache.streampipes.messaging.jms.SpJmsProtocolFactory;
 import org.apache.streampipes.messaging.kafka.SpKafkaProtocolFactory;
 import org.apache.streampipes.messaging.mqtt.SpMqttProtocolFactory;
-import org.apache.streampipes.processors.changedetection.jvm.cusum.CusumController;
+import org.apache.streampipes.processors.changedetection.jvm.cumsum.CumSumProcessor;
 
 public class ChangeDetectionJvmInit extends StandaloneModelSubmitter {
 
@@ -43,7 +43,7 @@ public class ChangeDetectionJvmInit extends StandaloneModelSubmitter {
                 "Processors Change Detection JVM",
                 "",
                 8090)
-                .registerPipelineElements(new CusumController())
+                .registerPipelineElements(new CumSumProcessor())
                 .registerMessagingFormats(
                         new JsonDataFormatFactory(),
                         new CborDataFormatFactory(),

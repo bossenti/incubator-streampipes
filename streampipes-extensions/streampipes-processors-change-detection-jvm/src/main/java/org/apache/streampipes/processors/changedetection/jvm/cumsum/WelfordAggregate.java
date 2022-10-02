@@ -16,7 +16,7 @@
  *
  */
 
-package org.apache.streampipes.processors.changedetection.jvm.cusum;
+package org.apache.streampipes.processors.changedetection.jvm.cumsum;
 
 public class WelfordAggregate {
     private Integer count;
@@ -30,6 +30,10 @@ public class WelfordAggregate {
     }
 
     public void update(Double newValue) {
+        this.updateMeanAndStandardDeviation(newValue);
+    }
+
+    public void updateMeanAndStandardDeviation(Double newValue) {
         count++;
         Double delta = mean != null ? newValue - mean : 0.0;
         mean += delta / count;
@@ -41,8 +45,10 @@ public class WelfordAggregate {
         return mean;
     }
 
-    public Double getPopulationVariance() {
-        return m2 / count;
+    public Double getZScoreNormalizedValue(Double value) {
+        Double mean = this.getMean();
+        Double std = this.getSampleStd();
+        return (value - mean) / std;
     }
 
     public Double getSampleVariance() {
@@ -53,7 +59,4 @@ public class WelfordAggregate {
         return Math.sqrt(getSampleVariance());
     }
 
-    public Double getPopulationStd() {
-        return Math.sqrt(getPopulationVariance());
-    }
 }

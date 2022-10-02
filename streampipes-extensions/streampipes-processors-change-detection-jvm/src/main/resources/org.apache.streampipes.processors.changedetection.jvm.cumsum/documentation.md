@@ -16,7 +16,7 @@
   ~
   -->
 
-## Cusum (Cumulative Sum)
+## CumSum (Cumulative Sum)
 
 <!--
 <p align="center"> 
