@@ -15,3 +15,4 @@
   ~ limitations under the License.
   ~
 -->
+... upcoming Python client for StreamPipes, stay tuned!
