@@ -15,5 +15,4 @@
 # limitations under the License.
 #
 
-from .client import StreamPipesClient
-from .credentials import StreamPipesApiKeyCredentials
+from .model_container import ModelContainer

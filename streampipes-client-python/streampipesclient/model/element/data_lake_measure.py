@@ -14,19 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from dataclasses import dataclass
-from typing import Optional, Type
+from typing import Optional
 
-from streampipesclient.client.credentials import CredentialProvider
+from pydantic import StrictStr, StrictBool
+
+from streampipesclient.model.common import EventSchema
+from streampipesclient.model.element import Element
 
 
-@dataclass
-class StreamPipesClientConfig:
-    """
-
-    """
-
-    credential_provider: Type[CredentialProvider]
-    host_address: str
-    https_disabled: Optional[bool] = False
-    port: Optional[int] = 80
+class DataLakeMeasure(Element):
+    measure_name: StrictStr
+    timestamp_field: StrictStr
+    event_schema: EventSchema
+    pipeline_id: Optional[StrictStr]
+    pipeline_name: Optional[StrictStr]
+    pipeline_is_running: StrictBool
+    schema_version: StrictStr

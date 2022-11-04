@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+CHANGED_FILES="$(git --no-pager diff --name-status --no-color --cached --diff-filter=d|awk '$1 !~ /R/ && ( $2 ~ /\.py|\.pyi/ ) {print $2}; $1 ~ /R/ && ( $3 ~ /\.py|\.pyi/ ) {print $3}')"
+
+if [ -z "$CHANGED_FILES" ]; then
+    echo "No Python staged files."
+    exit 0
+fi;
+

@@ -14,6 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from abc import ABC
 
-from .client import StreamPipesClient
-from .credentials import StreamPipesApiKeyCredentials
+from streampipesclient.model.common import BasicModel
+
+
+class Element(ABC, BasicModel):
+    pass
