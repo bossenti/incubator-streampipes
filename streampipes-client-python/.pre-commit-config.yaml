@@ -56,4 +56,4 @@ repos:
         name: pyupgrade
         language: python
         types: [python]
-        entry: pyupgrade --py38-plus
+        entry: pyupgrade --py38-plus --keep-runtime-typing
