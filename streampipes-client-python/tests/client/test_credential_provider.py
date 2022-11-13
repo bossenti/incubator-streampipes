@@ -14,10 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from abc import ABC
 
-from streampipesclient.model.common import BasicModel
+from streampipes_client.client.credential_provider import StreamPipesApiKeyCredentials
 
 
-class Element(ABC, BasicModel):
-    pass
+def test_api_key_credentials():
+    credentials = StreamPipesApiKeyCredentials(username="test-user", api_key="test-key")
+    result = credentials.make_headers()
+
+    expected = {"X-API-User": "test-user", "X-API-Key": "test-key"}
+
+    assert result == expected
+
+    result_extended = credentials.make_headers(http_headers={"test": "test"})
+    expected_extended = {**expected, "test": "test"}
+
+    assert result_extended == expected_extended

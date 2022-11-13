@@ -70,7 +70,7 @@ It comes with a rich graphical user interface targeted at non-technical users an
 
 
 StreamPipes is highly extensible and includes a Java SDK to create new 
-pipeline elements and adapters. Python support is available in an early development stage - stay tuned!  
+pipeline elements and adapters. [Python support](./streampipes-client-python/README.md) is available in an early development stage - stay tuned!  
 Pipeline elements are standalone microservices that can run anywhere -
 centrally on your server or close at the edge.
 You want to employ your own machine learning model on live data?

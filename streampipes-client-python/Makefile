@@ -17,14 +17,25 @@
 
 COMMIT_HASH := $(shell eval git rev-parse HEAD)
 
+doc:
+	mkdocs build
+
 format:
 	pre-commit run --all-files
 
-doc:
-	mkdocs build
+lint:
+	flake8 streampipes_client --max-line-length 120
 
 livedoc: doc
 	mkdocs serve --dirtyreload
 
 rebase:
 	git fetch && git rebase origin/dev
+
+reformat-all:
+	autoflake -r --remove-all-unused-imports --expand-star-imports --in-place streampipes_client tests
+	isort --profile black streampipes_client tests
+	black --line-length=120 streampipes_client tests
+
+unit-tests:
+	pytest --cov=streampipes_client tests/ --cov-fail-under=90 --cov-report term-missing --no-cov-on-fail

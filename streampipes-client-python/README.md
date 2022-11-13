@@ -19,12 +19,15 @@
 # StreamPipes client for Python
 
 Apache StreamPipes meets Python! We are working highly motivated on a Python-based client to interact with StreamPipes.
-Thus, we would like to unite the power of StreamPipes to easily connect to and read from several data sources, especially in the IoT domain,
-and the amazing university of data analytics libraries in Python.
+In this way, we would like to unite the power of StreamPipes to easily connect to and read different data sources, especially in the IoT domain,
+and the amazing universe of data analytics libraries in Python.
 
-<br>
-
-![StreamPipes Python logo](./docs/img/streampipes-python.png)
+<h1 align="center">
+  <br>
+   <img src="./docs/img/streampipes-python.png"
+   alt="StreamPipes Logo with Python" title="Apache StreamPipes Logo with Python" width="75%"/>
+  <br>
+</h1>
 
 <br>
 
@@ -40,23 +43,4 @@ and the amazing university of data analytics libraries in Python.
 <br>
 **:exclamation::exclamation::exclamation:IMPORTANT:exclamation::exclamation::exclamation:**
 
-### Get ready for development
-
-1) Set up your Python environment
 <br>
-Create a virtual Python environment with a tool of your choice, here are some examples.
-As a next step, install all required dependencies for the development, e.g. with pip:
-```
-pip install .[dev]  # or alternatively: pip install .[docs]
-```
-<br>
-2) Install pre-commit hook
-<br>
-The pre-commit hook is run before every commit and takes care about code style,
-linting, type hints, import sorting, etc.
-Ensure to have the recent version of the pre-commit installed otherwise the CI build might fail:
-
-```
-pre-commit install
-```
-The definition of the pre-commit hook can found in [.pre-commit-config.yaml](.pre-commit-config.yaml).

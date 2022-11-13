@@ -14,3 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+"""
+This module contains everything about the client itself, the central point of interaction with StreamPipes.
+"""
+
+from .client import StreamPipesClient
+
+__all__ = [
+    "StreamPipesClient",
+]

@@ -14,19 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from typing import Optional
 
-from pydantic import StrictStr, StrictBool
-
-from streampipesclient.model.common import EventSchema
-from streampipesclient.model.element import Element
-
-
-class DataLakeMeasure(Element):
-    measure_name: StrictStr
-    timestamp_field: StrictStr
-    event_schema: EventSchema
-    pipeline_id: Optional[StrictStr]
-    pipeline_name: Optional[StrictStr]
-    pipeline_is_running: StrictBool
-    schema_version: StrictStr
+"""
+This library provides a handy Python-based client to interact with Apache StreamPipes.
+"""

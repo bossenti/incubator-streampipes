@@ -15,4 +15,23 @@
 # limitations under the License.
 #
 
-from .client import StreamPipesClient
+"""
+General and abstract implementation for a resource.
+A resource defines the data model that is used by a resource container (`model.container.resourceContainer`).
+"""
+from abc import ABC
+
+from streampipes_client.model.common import BasicModel
+
+__all__ = [
+    "Resource",
+]
+
+
+class Resource(ABC, BasicModel):
+    """General and abstract implementation for a resource.
+    A resource defines the data model used by a resource container (`model.container.resourceContainer`).
+    It inherits from Pydantic's BaseModel to get all its superpowers,
+    which are used to parse, validate the API response and to easily switch between
+    the Python representation (both serialized and deserialized) and Java representation (serialized only).
+    """
