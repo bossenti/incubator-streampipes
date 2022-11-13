@@ -40,4 +40,4 @@ class Resource(ABC, BasicModel):
     @abstractmethod
     def convert_to_pandas_representation(self) -> Dict:
         """Returns a dictionary representation to be used when creating a pandas Dataframe."""
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no-cover
