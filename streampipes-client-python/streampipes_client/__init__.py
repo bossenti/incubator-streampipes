@@ -14,7 +14,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-"""
-This library provides a handy Python-based client to interact with Apache StreamPipes.
-"""

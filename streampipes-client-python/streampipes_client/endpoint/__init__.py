@@ -14,10 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-"""
-This module contains the implementation of all endpoints of the StreamPipes client.
-One endpoint aims to handle the whole interaction with a central endpoint of the StreamPipes API.
-"""
 from .data_lake_measure import DataLakeMeasureEndpoint
 
 __all__ = [

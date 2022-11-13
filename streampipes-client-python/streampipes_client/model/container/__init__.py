@@ -15,12 +15,6 @@
 # limitations under the License.
 #
 
-"""
-This model contains the implementation of all resource container.
-A ResourceContainer is a collection of `model.resource.Resource`s to which the
-response of the StreamPipes API is parsed.
-"""
-
 from .data_lake_measures import DataLakeMeasures
 
 __all__ = [

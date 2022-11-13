@@ -15,10 +15,6 @@
 # limitations under the License.
 #
 
-"""
-This module contains everything about the client itself, the central point of interaction with StreamPipes.
-"""
-
 from .client import StreamPipesClient
 
 __all__ = [
