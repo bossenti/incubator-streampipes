@@ -92,11 +92,40 @@ class TestStreamPipesEndpoints(TestCase):
         )
 
         result = client.dataLakeMeasureApi.all()
+        result_pd = result.to_pandas()
 
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0].measure_name, "test")
-        self.assertEqual(result.to_json(), self.data_lake_measure_all_json)
-        self.assertEqual(result.to_dicts(use_source_names=True), self.data_lake_measure_all)
+        self.assertEqual(
+            1,
+            len(result),
+        )
+        self.assertEqual(
+            "test",
+            result[0].measure_name,
+        )
+        self.assertEqual(
+            self.data_lake_measure_all_json,
+            result.to_json(),
+        )
+        self.assertEqual(
+            self.data_lake_measure_all,
+            result.to_dicts(use_source_names=True),
+        )
+        self.assertEqual(
+            1,
+            len(result_pd),
+        )
+        self.assertListEqual(
+            [
+                "measure_name",
+                "timestamp_field",
+                "pipeline_id",
+                "pipeline_name",
+                "pipeline_is_running",
+                "num_event_properties",
+            ],
+            list(result_pd.columns),
+        )
+        self.assertEqual(2, result_pd["num_event_properties"][0])
 
     @patch("streampipes_client.client.client.Session", autospec=True)
     def test_endpoint_data_lake_measure_bad_return_code(self, http_session: MagicMock):
@@ -120,7 +149,8 @@ class TestStreamPipesEndpoints(TestCase):
         with self.assertRaises(HTTPError) as http_error:
             client.dataLakeMeasureApi.all()
         self.assertMultiLineEqual(
-            http_error.exception.args[0], _error_code_to_message[405] + f"url: localhost\nstatus code: 405"
+            _error_code_to_message[405] + f"url: localhost\nstatus code: 405",
+            http_error.exception.args[0],
         )
 
     @patch("streampipes_client.client.client.Session", autospec=True)

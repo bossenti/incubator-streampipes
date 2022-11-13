@@ -17,7 +17,6 @@
 from typing import Optional
 
 from pydantic import StrictBool, StrictStr
-
 from streampipes_client.model.common import EventSchema
 from streampipes_client.model.resource.resource import Resource
 
@@ -37,6 +36,18 @@ class DataLakeMeasure(Resource):
     which are used to parse, validate the API response and to easily switch between
     the Python representation (both serialized and deserialized) and Java representation (serialized only).
     """
+
+    def convert_to_pandas_representation(self):
+        """Returns the dictionary representation of a data lake measure
+        to be used when creating a pandas Dataframe.
+        It excludes the following fields: `element_id`, `event_schema`, `schema_version`.
+        Instead of the whole event schema the number of event properties contained
+        is returned with the column name `num_event_properties`.
+        """
+        return {
+            **self.dict(exclude={"element_id", "event_schema", "schema_version"}),
+            "num_event_properties": len(self.event_schema.event_properties),
+        }
 
     measure_name: StrictStr
     timestamp_field: StrictStr

@@ -198,7 +198,6 @@ class ResourceContainer(ABC):
 
         return json.dumps(self.to_dicts(use_source_names=True))
 
-    @abstractmethod
     def to_pandas(self) -> pd.DataFrame:
         """Returns the resource container in representation of a Pandas Dataframe.
 
@@ -206,4 +205,6 @@ class ResourceContainer(ABC):
         -------
         pd.DataFrame
         """
-        raise NotImplementedError  # pragma: no cover
+        return pd.DataFrame.from_records(
+            data=[resource_item.convert_to_pandas_representation() for resource_item in self]
+        )

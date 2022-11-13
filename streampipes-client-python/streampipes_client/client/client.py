@@ -75,6 +75,14 @@ class StreamPipesClient:
 
     # Interact with an endpoint
     >>> data_lake_measures = client.dataLakeMeasureApi.all()
+
+    # Inspect returned data as a pandas dataframe
+    >>> data_lake_measures.to_pandas()
+
+        measure_name timestamp_field  ... pipeline_is_running num_event_properties
+    0           test   s0::timestamp  ...               False                    2
+    [1 rows x 6 columns]
+
     """
 
     def __init__(
