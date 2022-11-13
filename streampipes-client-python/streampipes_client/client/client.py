@@ -28,7 +28,6 @@ import sys
 from typing import Dict, Optional
 
 from requests import Session
-
 from streampipes_client.client.client_config import StreamPipesClientConfig
 from streampipes_client.endpoint import DataLakeMeasureEndpoint
 
@@ -87,7 +86,7 @@ class StreamPipesClient:
         self.request_session = Session()
         self.request_session.headers.update(self.http_headers)
 
-        self._set_up_logging(logging_level=logging_level)
+        self._set_up_logging(logging_level=logging_level)  # type: ignore
 
         # provide all available endpoints here
         # name of the endpoint needs to be consistent with the Java client

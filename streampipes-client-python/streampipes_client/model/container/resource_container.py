@@ -30,7 +30,6 @@ from typing import Dict, List, Type
 
 import pandas as pd
 from pydantic import ValidationError
-
 from streampipes_client.model.exception import (
     StreamPipesDataModelError,
     StreamPipesResourceContainerJSONError,
@@ -71,7 +70,7 @@ class ResourceContainer(ABC):
 
     @classmethod
     @abstractmethod
-    def _resource_cls(cls) -> Type["Resource"]:
+    def _resource_cls(cls) -> Type[Resource]:
         """Returns the class of the resource that are bundled.
 
         Returns
@@ -107,7 +106,7 @@ class ResourceContainer(ABC):
         # the ResourceContainer expects a list of items
         # raise an exception if the response does not be a list
         if not type(parsed_json) == list:
-            raise StreamPipesResourceContainerJSONError(container=cls, json_string=json_string)
+            raise StreamPipesResourceContainerJSONError(container_name=str(cls), json_string=json_string)
         try:
 
             resource_container = cls(resources=[cls._resource_cls().parse_obj(item) for item in parsed_json])
