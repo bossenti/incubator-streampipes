@@ -29,7 +29,7 @@ class StreamPipesBaseException(Exception):
     """Basic class for custom StreamPipes exceptions."""
 
     @abstractmethod
-    def _generate_error_message(self, **kwargs):
+    def _generate_error_message(self):
         raise NotImplementedError  # pragma: no cover
 
 
@@ -76,10 +76,10 @@ class StreamPipesResourceContainerJSONError(StreamPipesBaseException):
 
     def __init__(
         self,
-        container: "ResourceContainer",  # noqa: F821
+        container_name: str,  # noqa: F821
         json_string: str,
     ):
-        self.container = container
+        self.container_name = container_name
         self.json_string = json_string
         super().__init__(self._generate_error_message())
 
@@ -90,6 +90,6 @@ class StreamPipesResourceContainerJSONError(StreamPipesBaseException):
             f"Therefore, it would be great if you could report this problem as an issue at "
             f"github.com/apache/incubator-streampipes.\n"
             f"Please don't forget to include the following information:\n\n"
-            f"Affected container class: {str(self.container)}\n"
+            f"Affected container class: {str(self.container_name)}\n"
             f"JSON string: {self.json_string}"
         )

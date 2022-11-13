@@ -70,7 +70,7 @@ class APIEndpoint(ABC):
 
     """
 
-    def __init__(self, parent_client: "StreamPipesClient"):  # noqa: F821
+    def __init__(self, parent_client: "StreamPipesClient"):  # type: ignore # noqa: F821
         self._parent_client = parent_client
 
     @property

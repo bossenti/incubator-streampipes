@@ -32,7 +32,19 @@ repos:
         language: python
         types: [ python ]
         entry: pyupgrade --py38 --keep-runtime-typing
-        require_serial: true
+
+      - id: autoflake
+        name: autoflake
+        language: python
+        types: [ python ]
+        entry: autoflake --remove-all-unused-imports --expand-star-imports --in-place
+
+      - id: isort
+        name: isort
+        language: python
+        types: [ python ]
+        entry: isort --profile black
+        verbose: true
 
       - id: black
         name: black
@@ -48,17 +60,3 @@ repos:
         entry: isort --profile black
         require_serial: true
         verbose: true
-
-      - id: flake8
-        name: flake8
-        language: python
-        types: [python]
-        entry: flake8 --max-line-length 120
-        require_serial: true
-
-      - id: mypy
-        name: mypy
-        language: python
-        types: [python]
-        entry: mypy
-        require_serial: true

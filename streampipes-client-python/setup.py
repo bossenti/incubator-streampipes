@@ -42,9 +42,12 @@ dev_packages = base_packages + [
     "flake8>=5.0.4",
     "isort>=5.10.1",
     "mypy>=0.990",
+    "pandas-stubs>=1.5.1.221024",
+    "pre-commit>=2.20.0",
     "pytest>=7.2.0",
     "pytest-cov>=4.0.0",
     "pyupgrade>=3.2.2",
+    "types-requests>=2.28.11.4",
 ]
 
 docs_packages = [
