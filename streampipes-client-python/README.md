@@ -34,11 +34,11 @@ and the amazing universe of data analytics libraries in Python.
 **:exclamation::exclamation::exclamation:IMPORTANT:exclamation::exclamation::exclamation:**
 <br>
 <br>
-**The current version of this Python client is still in alpha phase at best**
+**The current version of this Python client is still in alpha phase at best.**
 <br>
 **This means that it is still heavily under development, which may result in frequent and extensive API changes, unstable behavior, etc.**
 <br>
-**Please consider it only as paa sneak preview.**
+**Please consider it only as a sneak preview.**
 <br>
 <br>
 **:exclamation::exclamation::exclamation:IMPORTANT:exclamation::exclamation::exclamation:**

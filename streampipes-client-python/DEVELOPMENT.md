@@ -17,15 +17,16 @@
 -->
 
 # Development Guide
-This document describes how to easily set up your local dev environment to develop on the
-StreamPipes Python client :snake:
+This document describes how to easily set up your local dev environment to work on the
+StreamPipes Python client :snake:.
 
 ### First Steps :rocket:
+<br>
 
 1) **Set up your Python environment**
-<br>
-Create a virtual Python environment with a tool of your choice, here are some examples.
-As a next step, install all required dependencies for the development, e.g. with pip:
+
+Create a virtual Python environment with a tool of your choice.
+As a next step, install all required dependencies for the development, e.g., with `pip`:
 
 ```
 pip install .[dev]  # or alternatively: pip install .[all] to include dependencies for building the docs as well
@@ -38,15 +39,17 @@ pip install ."[dev]"
 <br>
 
 2) **Install pre-commit hook**
-<br>
+
 The pre-commit hook is run before every commit and takes care about code style,
-linting, type hints, import sorting, etc.
-Ensure to have the recent version of the pre-commit installed otherwise the CI build might fail:
+linting, type hints, import sorting, etc. It will stop your commit in case the changes do not apply the expected format.
+Always check to have the recent version of the pre-commit installed otherwise the CI build might fail:
 
 ```
 pre-commit install
 ```
 The definition of the pre-commit hook can be found in [.pre-commit-config.yaml](.pre-commit-config.yaml).
+
+<br>
 
 ### Conventions :clap:
 Below we list some conventions that we have agreed on for creating the StreamPipes Python client.
@@ -57,7 +60,7 @@ If you have any other suggestions or would like to discuss them, we would be hap
 Please stick to the `numpy` style when writing docstrings, as we require this for generating our documentation.
 
 
-2) **Provide tests** :heavy_check_mark: <br>
+2) **Provide tests** :white_check_mark: <br>
 We are aiming for broad test coverage for the Python client and
 have therefore set a requirement of at least 90% unit test coverage.
 Therefore, please remember to write (unit) tests already during development. 
