@@ -24,7 +24,7 @@ and the amazing universe of data analytics libraries in Python.
 
 <h1 align="center">
   <br>
-   <img src="./docs/img/streampipes-python.png"
+   <img src="https://github.com/bossenti/incubator-streampipes/blob/feature/STREAMPIPES-607/streampipes-client-python/docs/img/streampipes-python.png"
    alt="StreamPipes Logo with Python" title="Apache StreamPipes Logo with Python" width="75%"/>
   <br>
 </h1>
