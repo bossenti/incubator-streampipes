@@ -206,5 +206,7 @@ class ResourceContainer(ABC):
         pd.DataFrame
         """
         return pd.DataFrame.from_records(
-            data=[resource_item.convert_to_pandas_representation() for resource_item in self]
+            # ResourceContainer is iterable itself via __get_item__
+            # (ignore mypy's expectation of __iter__ here)
+            data=[resource_item.convert_to_pandas_representation() for resource_item in self]  # type: ignore
         )
