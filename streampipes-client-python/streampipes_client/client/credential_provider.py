@@ -21,6 +21,9 @@ A credential provider supplies the specified sort of credentials in the appropri
 The headers are then used by the client to connect to StreamPipes.
 """
 
+from __future__ import annotations
+
+import os
 from abc import ABC, abstractmethod
 from typing import Dict, Optional
 
@@ -89,6 +92,41 @@ class StreamPipesApiKeyCredentials(CredentialProvider):
     [^1]: [StreamPipes Python Client README]
     (https://github.com/apache/incubator-streampipes/blob/dev/streampipes-client-python/README.md#%EF%B8%8F-quickstart)
     """
+
+    @classmethod
+    def from_env(cls, username_env: str, api_key_env: str) -> StreamPipesApiKeyCredentials:
+        """Returns an api key provider parameterized via environment variables.
+
+        Parameters
+        ----------
+        username_env: str
+            Name of the environment variable that contains the username
+        api_key_env: str
+            Name of the environment variable that contains the API key
+
+        Returns
+        -------
+        StreamPipesApiKeyCredentials
+
+        Raises
+        ------
+        KeyError
+            If one of the environment variables is not defined
+
+        """
+
+        username = os.getenv(username_env, None)
+        api_key = os.getenv(api_key_env, None)
+
+        if username is None or api_key is None:
+            raise KeyError(
+                f"Ups, the following environment variables have not been found: "
+                f"{'`' + username_env + '`,' if username is None else ''}"
+                f"{'`' + api_key_env +'`' if api_key is None else ''}. "  # noqa: W291
+                "Please check them to be properly set."
+            )
+
+        return cls(username=username, api_key=api_key)
 
     def __init__(
         self,

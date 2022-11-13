@@ -14,19 +14,36 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import os
+from unittest import TestCase
 
 from streampipes_client.client.credential_provider import StreamPipesApiKeyCredentials
 
 
-def test_api_key_credentials():
-    credentials = StreamPipesApiKeyCredentials(username="test-user", api_key="test-key")
-    result = credentials.make_headers()
+class TestStreamPipesApiKeyCredentials(TestCase):
+    def test_api_key_credentials(self):
+        credentials = StreamPipesApiKeyCredentials(username="test-user", api_key="test-key")
+        result = credentials.make_headers()
 
-    expected = {"X-API-User": "test-user", "X-API-Key": "test-key"}
+        expected = {"X-API-User": "test-user", "X-API-Key": "test-key"}
 
-    assert result == expected
+        self.assertDictEqual(expected, result)
 
-    result_extended = credentials.make_headers(http_headers={"test": "test"})
-    expected_extended = {**expected, "test": "test"}
+        result_extended = credentials.make_headers(http_headers={"test": "test"})
+        expected_extended = {**expected, "test": "test"}
 
-    assert result_extended == expected_extended
+        self.assertDictEqual(expected_extended, result_extended)
+
+    def test_api_key_from_env(self):
+
+        os.environ["USER"] = "user"
+        os.environ["KEY"] = "api-key"
+        credentials = StreamPipesApiKeyCredentials.from_env(username_env="USER", api_key_env="KEY")
+
+        self.assertEqual("user", credentials.username)
+        self.assertEqual("api-key", credentials.api_key)
+
+    def test_api_key_from_env_not_set(self):
+
+        with self.assertRaises(KeyError):
+            StreamPipesApiKeyCredentials.from_env(username_env="test", api_key_env="key")
