@@ -21,7 +21,6 @@ Implementation of a resource container for the data lake measures endpoint.
 from typing import Type
 
 import pandas as pd
-
 from streampipes_client.model.container.resource_container import ResourceContainer
 from streampipes_client.model.resource.data_lake_measure import DataLakeMeasure
 from streampipes_client.model.resource.resource import Resource
@@ -55,7 +54,7 @@ class DataLakeMeasures(ResourceContainer):
         return DataLakeMeasure
 
     def to_pandas(self) -> pd.DataFrame:
-        """Returns the all data lake measures in one Pandas Dataframe.
+        """Returns the all data lake measures in a Pandas Dataframe.
 
         Returns
         -------

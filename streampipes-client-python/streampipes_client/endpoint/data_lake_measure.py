@@ -43,13 +43,15 @@ class DataLakeMeasureEndpoint(APIEndpoint):
 
     Parameters
     ----------
-    parent_client: `client.StreamPipesClient`
-        The instance of `StreamPipesClient` the endpoint is attached to.
+    parent_client: StreamPipesClient
+        The instance of `client.StreamPipesClient` the endpoint is attached to.
 
     Examples
     --------
 
-    >>> from streampipes_client.client import StreamPipesClient, StreamPipesClientConfig, StreamPipesApiKeyCredentials
+    >>> from streampipes_client.client import StreamPipesClient
+    >>> from streampipes_client.client.client_config import StreamPipesClientConfig
+    >>> from streampipes_client.client.credential_provider import StreamPipesApiKeyCredentials
 
     >>> client_config = StreamPipesClientConfig(
     ...     credential_provider=StreamPipesApiKeyCredentials(username="test-user", api_key="api-key"),

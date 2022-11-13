@@ -61,12 +61,10 @@ class APIEndpoint(ABC):
     Serves as template for all endpoints for the StreamPipes API.
     By design, endpoints are only instantiated within the `__init__` method of the StreamPipesClient.
 
-    Could be extended by additional subtypes in the future.
-
     Parameters
     ----------
-    parent_client: `client.StreamPipesClient`
-        This parameter expects the instance of the `StreamPipesClient` the endpoint is attached to.
+    parent_client: StreamPipesClient
+        This parameter expects the instance of the `client.StreamPipesClient` the endpoint is attached to.
 
     """
 
@@ -78,7 +76,7 @@ class APIEndpoint(ABC):
     def _container_cls(self) -> Type[ResourceContainer]:
         """Defines the model container class the endpoint refers to.
         This model container class corresponds to the Python data model,
-         which handles multiple resources returned from the endpoint.
+        which handles multiple resources returned from the endpoint.
 
         Returns
         -------

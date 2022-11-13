@@ -41,7 +41,7 @@ class StreamPipesClient:
 
     The client provides so-called "endpoints" each of which refers to
     an endpoint of the StreamPipes API, e.g. `.dataLakeMeasureApi`.
-    An endpoint provides the actual methods to interact with StreamPipes API (see client.endpoint.Endpoint).
+    An endpoint provides the actual methods to interact with StreamPipes API (see endpoint.endpoint.APIEndpoint).
 
     Parameters
     ----------
@@ -53,7 +53,9 @@ class StreamPipesClient:
     Examples
     --------
 
-    >>> from streampipes_client.client import StreamPipesClient, StreamPipesClientConfig, StreamPipesApiKeyCredentials
+    >>> from streampipes_client.client import StreamPipesClient
+    >>> from streampipes_client.client.client_config import StreamPipesClientConfig
+    >>> from streampipes_client.client.credential_provider import StreamPipesApiKeyCredentials
 
     >>> client_config = StreamPipesClientConfig(
     ...     credential_provider=StreamPipesApiKeyCredentials(
@@ -71,6 +73,7 @@ class StreamPipesClient:
     # If you prefer a more pythonic way, you can simply write:
     >>> client = StreamPipesClient(client_config=client_config)
 
+    # Interact with an endpoint
     >>> data_lake_measures = client.dataLakeMeasureApi.all()
     """
 
@@ -138,7 +141,7 @@ class StreamPipesClient:
     @property
     def http_headers(self) -> Dict[str, str]:
         """Returns the HTTP headers required for all requests.
-        The HTTP headers are composed of the authentication headers provided by the credential
+        The HTTP headers are composed of the authentication headers supplied by the credential
         provider and additional required headers (currently this is only the application header).
 
         Returns

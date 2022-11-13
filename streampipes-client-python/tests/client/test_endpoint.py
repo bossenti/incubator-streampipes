@@ -5,12 +5,11 @@ from unittest.mock import MagicMock, patch
 
 from pydantic import ValidationError
 from requests import HTTPError
-
 from streampipes_client.client import StreamPipesClient
 from streampipes_client.client.client_config import StreamPipesClientConfig
 from streampipes_client.client.credential_provider import StreamPipesApiKeyCredentials
 from streampipes_client.endpoint.endpoint import _error_code_to_message
-from streampipes_client.model.exception import (
+from streampipes_client.model.container.resource_container import (
     StreamPipesDataModelError,
     StreamPipesResourceContainerJSONError,
 )
