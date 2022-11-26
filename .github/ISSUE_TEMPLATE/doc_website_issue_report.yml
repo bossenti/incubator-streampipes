@@ -24,6 +24,7 @@ body:
         <p align='center'>
         
         <img src='https://streampipes.apache.org/img/sp-logo-color.png' alt='StreamPipes Logo' title='Apache StreamPipes Logo' width='50%' align='center'/>
+        </p>
         
         <br>
         
@@ -33,8 +34,7 @@ body:
 
         Please note that you do not need to create an issue if you want to submit a change!
 
-        You can open a [pull request](https://github.com/apache/streampipes/pulls) immediately instead.
-        </p>
+        You can open a <a href='https://github.com/apache/streampipes/pulls'>pull request</a> immediately instead.
         "
 
   - type: dropdown
