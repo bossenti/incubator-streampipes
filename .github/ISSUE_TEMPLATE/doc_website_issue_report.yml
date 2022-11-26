@@ -14,15 +14,18 @@
 # limitations under the License.
 
 ---
-name: ':bug: :books: StreamPipes Documentation/Website issue report'
+name: StreamPipes Documentation/Website issue report
 description: Problems and issues with Apache StreamPipes documentation or website
 labels: ["bug", "documentation", "website"]
 body:
   - type: markdown
     attributes:
       value: "
+        
         <img src='https://streampipes.apache.org/img/sp-logo-color.png' alt='StreamPipes Logo' title='Apache StreamPipes Logo' width='50%' align='center'/>
+        
         <br>
+        
         Thank you for taking the time to report the issue!
 
         We greatly appreciate the community's efforts to improve StreamPipes.
@@ -83,4 +86,4 @@ body:
 
   - type: markdown
     attributes:
-      value: "Thanks for completing our form!"
+      value: "pray: Thanks a lot for completing our form!"
