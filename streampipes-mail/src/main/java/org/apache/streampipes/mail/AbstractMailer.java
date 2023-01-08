@@ -28,7 +28,7 @@ import org.simplejavamail.api.email.Recipient;
 import org.simplejavamail.api.mailer.Mailer;
 import org.simplejavamail.email.EmailBuilder;
 
-import javax.mail.Message;
+import jakarta.mail.Message;
 
 import java.util.List;
 import java.util.stream.Collectors;
