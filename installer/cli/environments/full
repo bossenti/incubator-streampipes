@@ -25,3 +25,5 @@ zookeeper
 kafka
 influxdb
 pipeline-elements-all-flink
+grafana
+prometheus

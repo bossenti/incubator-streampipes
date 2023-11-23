@@ -13,23 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-version: "3.4"
-services:
-  grafana:
-    image: grafana/grafana:10.1.2
-    volumes:
-      - grafana:/var/lib/grafana
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "1m"
-        max-file: "1"
-    networks:
-      spnet:
-
-volumes:
-  grafana:
-
-networks:
-  spnet:
-    external: true
+[environment:lite]
+ui
+backend
+consul
+couchdb
+kafka
+zookeeper
+influxdb
+extensions-all-jvm
+grafana
+prometheus
